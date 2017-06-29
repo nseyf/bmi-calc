@@ -58,42 +58,46 @@ const { result } = this.state;
 
 const inputDiv = {
  margin: "50px",
-fontWeight: "bold"
+fontWeight: "100"
 }
 const inputStyle = {
-  borderBottom: "2px solid #f5f5f5",
+  border: "none",
+  background: "white",
   padding: "5px",
-  fontSize: "15px"
+  borderBottom: "3px solid #f5f5f5",
+  fontSize: "30px",
+  width: "85%",
+  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 }
 const titleStyle = {
-  fontSize: "50px",
-  color: "#151515",
+  fontSize: "55px",
+  color: "white",
+  textShadow: "2px 2px 0px pink",
+  textShadow: "1px 1px 0px pink",
+  letterSpacing: "2px",
   fontWeight: "900"
 }
 const containerStyle = {
   padding: "50px",
-  background: "#fff",
+backgroundImage: "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
   fontFamily: "'Roboto', cursive",
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 }
-const identifierStyle = {
-  fontSize: "20px",
-  color: "#151515"
-}
+
 console.log(this.state);
     return (
 
       <div className="App" className="col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
-        <div><h1 style={titleStyle}>BMI Calculator</h1></div>
-        <div style={inputDiv}><span style={identifierStyle}>Enter your Height(cm): </span><input style={inputStyle} key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
+        <div><h1 style={titleStyle}>BMI CALCULATOR</h1></div>
+        <div style={inputDiv}><input style={inputStyle} placeholder="Enter your Height (cm)" key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
       </div>
-      <div style={inputDiv}><span style={identifierStyle}>Enter your Weight(kg): </span><input style={inputStyle} key={this.weight} onChange={this.updateWeight.bind(this)} value={this.state.weight}/>
+      <div style={inputDiv}><input style={inputStyle} placeholder="Enter your Weight (kg)" key={this.weight} onChange={this.updateWeight.bind(this)} value={this.state.weight}/>
       </div>
       <div>
       </div>
         <div>
-          <h2 style={{fontWeight: "400"}}>Your BMI is: <span style={{fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
-          <h2 style={{fontWeight: "900"}}>{this.state.message}</h2>
+          <h2 style={{fontSize: "30px", fontWeight: "100", color: "white"}}>Your BMI is: <span style={{fontSize: "50px", fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
+          <h2 style={{fontSize: "40px", fontWeight: "900", color: "white"}}>{this.state.message}</h2>
 
       </div>
       </div>
