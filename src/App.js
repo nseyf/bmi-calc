@@ -14,31 +14,14 @@ class App extends Component {
 this.renderMessage = this.renderMessage.bind(this);
   }
 
-/*
-BMI Categories:
-<= 15: Very severely underweight
-15 - 16: severely underweight
-16 - 18.5: underweight
-18.5 - 25: Normal
-25 - 30: Overweight
-30 - 35: Obese Class 1 (Moderately Obese)
-35 - 40: Obese Class 2 (Severely Obese)
-40+: Obese Class 3 (Very Severely Obese)
-*/
-
-
 updateHeight(e) {
-
   this.setState({
     height: e.target.value ? parseInt(e.target.value, 10): ""
   }, () => {
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)}, () => {
       this.renderMessage();
     });
-
-
-
-  });
+});
 }
 
 updateWeight(e) {
@@ -79,7 +62,8 @@ fontWeight: "bold"
 }
 const inputStyle = {
   borderBottom: "2px solid #f5f5f5",
-  padding: "5px"
+  padding: "5px",
+  fontSize: "15px"
 }
 const titleStyle = {
   fontSize: "50px",
@@ -109,7 +93,7 @@ console.log(this.state);
       </div>
         <div>
           <h2 style={{fontWeight: "400"}}>Your BMI is: <span style={{fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
-          <h2>{this.state.message}</h2>
+          <h2 style={{fontWeight: "900"}}>{this.state.message}</h2>
 
       </div>
       </div>
