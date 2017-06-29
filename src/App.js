@@ -54,6 +54,10 @@ const inputDiv = {
  margin: "50px",
 fontWeight: "bold"
 }
+const inputStyle = {
+  borderBottom: "2px solid #f5f5f5",
+  padding: "5px"
+}
 const titleStyle = {
   fontSize: "50px",
   color: "#151515",
@@ -74,9 +78,9 @@ const identifierStyle = {
 
       <div className="App" className="col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
         <div><h1 style={titleStyle}>BMI Calculator</h1></div>
-        <div style={inputDiv}><span style={identifierStyle}>Enter your Height(cm): </span><input key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
+        <div style={inputDiv}><span style={identifierStyle}>Enter your Height(cm): </span><input style={inputStyle} key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
       </div>
-      <div style={inputDiv}><span style={identifierStyle}>Enter your Weight(kg): </span><input key={this.weight} onChange={this.updateWeight.bind(this)} value={this.state.weight}/>
+      <div style={inputDiv}><span style={identifierStyle}>Enter your Weight(kg): </span><input style={inputStyle} key={this.weight} onChange={this.updateWeight.bind(this)} value={this.state.weight}/>
       </div>
       <div>
       </div>
