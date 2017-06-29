@@ -11,28 +11,37 @@ class App extends Component {
       result: "",
       message: ""
     }
+
   }
 
+/*
+BMI Categories:
+<= 15: Very severely underweight
+15 - 16: severely underweight
+16 - 18.5: underweight
+18.5 - 25: Normal
+25 - 30: Overweight
+30 - 35: Obese Class 1 (Moderately Obese)
+35 - 40: Obese Class 2 (Severely Obese)
+40+: Obese Class 3 (Very Severely Obese)
+*/
 
 
 updateHeight(e) {
 
   this.setState({
-    height: e.target.value ? parseInt(e.target.value): ""
+    height: e.target.value ? parseInt(e.target.value, 10): ""
   }, () => {
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
   });
 }
 
 updateWeight(e) {
-  this.setState({weight: e.target.value ? parseInt(e.target.value): ""}, () => {
+  this.setState({weight: e.target.value ? parseInt(e.target.value, 10): ""}, () => {
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
   });
 
 }
-// BMI is weight / height(in m) then / by height again
-
-
 
   render() {
 
@@ -56,7 +65,6 @@ const identifierStyle = {
   color: "#151515"
 }
 
-      console.log(this.state)
     return (
 
       <div className="App" className="col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
@@ -67,7 +75,8 @@ const identifierStyle = {
       </div>
       <div>
       </div>
-      <div>
+        <div>
+          <h2 style={{fontWeight: "400"}}>Your BMI is: <span style={{fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
 
       </div>
       </div>
