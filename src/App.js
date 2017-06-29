@@ -19,12 +19,15 @@ updateHeight(e) {
 
   this.setState({
     height: e.target.value ? parseInt(e.target.value): ""
+  }, () => {
+    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
   });
-
 }
 
 updateWeight(e) {
-  this.setState({weight: e.target.value ? parseInt(e.target.value): ""});
+  this.setState({weight: e.target.value ? parseInt(e.target.value): ""}, () => {
+    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
+  });
 
 }
 // BMI is weight / height(in m) then / by height again
