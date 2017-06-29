@@ -40,7 +40,12 @@ updateWeight(e) {
   this.setState({weight: e.target.value ? parseInt(e.target.value, 10): ""}, () => {
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
   });
+}
 
+renderMessage(){
+  if(this.state.result < 15) {
+    this.setState({message: "You are severely underweight"})
+  }
 }
 
   render() {
@@ -77,6 +82,7 @@ const identifierStyle = {
       </div>
         <div>
           <h2 style={{fontWeight: "400"}}>Your BMI is: <span style={{fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
+          <h2>{this.state.message}</h2>
 
       </div>
       </div>
