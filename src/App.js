@@ -11,7 +11,7 @@ class App extends Component {
       result: "",
       message: ""
     }
-
+this.renderMessage = this.renderMessage.bind(this);
   }
 
 /*
@@ -32,19 +32,42 @@ updateHeight(e) {
   this.setState({
     height: e.target.value ? parseInt(e.target.value, 10): ""
   }, () => {
-    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
+    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)}, () => {
+      this.renderMessage();
+    });
+
+
+
   });
 }
 
 updateWeight(e) {
   this.setState({weight: e.target.value ? parseInt(e.target.value, 10): ""}, () => {
-    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)})
+    this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)}, () => {
+      this.renderMessage();
+    })
   });
 }
 
 renderMessage(){
-  if(this.state.result < 15) {
+const { result } = this.state;
+
+  if(result < 15) {
+    this.setState({message: "You are very severely underweight"})
+  } else if (result > 15 && result < 16) {
     this.setState({message: "You are severely underweight"})
+  } else if (result > 16 && result < 18.5) {
+    this.setState({message: "You are underweight"})
+  } else if (result > 18 && result < 25) {
+    this.setState({message: "Your BMI is normal"})
+  } else if (result > 25 && result < 30) {
+    this.setState({message: "You are overweight"})
+  } else if (result > 30 && result < 35) {
+    this.setState({message: "You are moderately Obese"})
+  } else if (result > 35 && result < 40) {
+    this.setState({message: "You are severely obese"})
+  } else if (result > 40) {
+    this.setState({message: "You are very severely obese"})
   }
 }
 
@@ -65,7 +88,7 @@ const titleStyle = {
 }
 const containerStyle = {
   padding: "50px",
-  background: "white",
+  background: "#fff",
   fontFamily: "'Roboto', cursive",
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 }
@@ -73,7 +96,7 @@ const identifierStyle = {
   fontSize: "20px",
   color: "#151515"
 }
-
+console.log(this.state);
     return (
 
       <div className="App" className="col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
