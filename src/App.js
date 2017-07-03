@@ -57,20 +57,16 @@ const { result } = this.state;
   render() {
 
 const inputDiv = {
- margin: "50px",
-fontWeight: "100"
+ margin: "50px"
 }
 const inputStyle = {
   border: "none",
   background: "white",
   padding: "5px",
   borderBottom: "3px solid #f5f5f5",
-  fontSize: "30px",
-  width: "85%",
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 }
 const titleStyle = {
-  fontSize: "55px",
   color: "white",
   letterSpacing: "2px",
   fontWeight: "900"
@@ -94,8 +90,8 @@ console.log(this.state);
       <div>
       </div>
         <div>
-          <h2 style={{fontSize: "30px", fontWeight: "100", color: "white"}}>Your BMI is: <span style={{fontSize: "50px", fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
-          <h2 style={{fontSize: "40px", fontWeight: "900", color: "white"}}>{this.state.message}</h2>
+          <h2 style={{fontWeight: "100", color: "white"}}>Your BMI is: <span style={{fontSize: "50px", fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
+          <h2 style={{fontWeight: "900", color: "white"}}>{this.state.message}</h2>
 
       </div>
       </div>
