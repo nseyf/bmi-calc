@@ -72,8 +72,6 @@ const inputStyle = {
 const titleStyle = {
   fontSize: "55px",
   color: "white",
-  textShadow: "2px 2px 0px pink",
-  textShadow: "1px 1px 0px pink",
   letterSpacing: "2px",
   fontWeight: "900"
 }
