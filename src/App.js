@@ -85,7 +85,7 @@ backgroundImage: "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
 console.log(this.state);
     return (
 
-      <div className="App" className="col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
+      <div className="App col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
         <div><h1 style={titleStyle}>BMI CALCULATOR</h1></div>
         <div style={inputDiv}><input style={inputStyle} placeholder="Enter your Height (cm)" key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
       </div>
