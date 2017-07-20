@@ -75,7 +75,7 @@ const containerStyle = {
   padding: "50px",
 backgroundImage: "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
   fontFamily: "'Roboto', cursive",
-  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+
 }
 
 console.log(this.state);
