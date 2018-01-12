@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
 
+// BMI is calculated by dividing a person's weight in kilograms by their
+// height in metres, then dividing the result by the height in metres again.
+
 class App extends Component {
+
   constructor(props) {
+
     super(props);
 
     this.state = {
@@ -11,29 +16,49 @@ class App extends Component {
       result: "",
       message: ""
     }
+
 this.renderMessage = this.renderMessage.bind(this);
   }
 
+
 updateHeight(e) {
+  // Updates state with user input for their height converted to a decimal (base 10).
   this.setState({
     height: e.target.value ? parseInt(e.target.value, 10): ""
   }, () => {
+// Once state has been update with the height value, setState is then called
+// to calculate the BMI. As the app uses CM for height input state height is
+// converted to metres.
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)}, () => {
+// Finally, the renderMessage function is called to classify the result BMI score within the categories.
       this.renderMessage();
     });
 });
 }
 
 updateWeight(e) {
+  // Updates state with user input converted to a decimal (base 10).
   this.setState({weight: e.target.value ? parseInt(e.target.value, 10): ""}, () => {
+    // Once state has been update with the weight value, setState is then called
+    // to calculate the BMI. Once again height is converted to metres.
     this.setState({result: this.state.weight / (this.state.height / 100) / (this.state.height / 100)}, () => {
+      // Finally, the renderMessage function is called to classify the result BMI score within the categories.
       this.renderMessage();
     })
   });
 }
 
+
+// In both updateHeight and updateWeight ternary operators are used
+// when setting state to ensure that the app does not crash trying to
+// calculate BMI with data it does not have.
+
 renderMessage(){
 const { result } = this.state;
+// BMI values within certain ranges indicate different classifications of physical health.
+// renderMessage takes the result from state then sets message state to a different string
+// indicating which classication the user falls under. This then causes the app to re-render
+// displaying this information to the user.
 
   if(result < 15) {
     this.setState({message: "You are very severely underweight"})
@@ -82,15 +107,29 @@ backgroundImage: "linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)",
 
       <div className="App col-xs-12 col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 text-center" style={containerStyle}>
         <div><h1 style={titleStyle}>BMI CALCULATOR</h1></div>
-        <div style={inputDiv}><input style={inputStyle} placeholder="Enter your Height (cm)" key={this.height} onChange={this.updateHeight.bind(this)} value={this.state.height} />
+        <div style={inputDiv}>
+        <input style={inputStyle} placeholder="Enter your Height (cm)"
+        key={this.height}
+        onChange={this.updateHeight.bind(this)}
+        value={this.state.height} />
       </div>
-      <div style={inputDiv}><input style={inputStyle} placeholder="Enter your Weight (kg)" key={this.weight} onChange={this.updateWeight.bind(this)} value={this.state.weight}/>
+      <div style={inputDiv}>
+      <input style={inputStyle} placeholder="Enter your Weight (kg)"
+      key={this.weight}
+      onChange={this.updateWeight.bind(this)}
+      value={this.state.weight}/>
       </div>
       <div>
       </div>
         <div>
-          <h2 style={{fontWeight: "100", color: "white"}}>Your BMI is: <span style={{fontSize: "50px", fontWeight: "900"}}>{this.state.result ? this.state.result.toFixed(2): ""}</span></h2>
-          <h2 style={{fontWeight: "900", color: "white"}}>{this.state.message}</h2>
+          <h2 style=
+          {{fontWeight: "100", color: "white"}}>
+          Your BMI is: <span style={{fontSize: "50px", fontWeight: "900"}}>
+          {this.state.result ? this.state.result.toFixed(2): ""}
+          </span></h2>
+          <h2 style={{fontWeight: "900", color: "white"}}>
+          {this.state.message}
+          </h2>
 
       </div>
       </div>
