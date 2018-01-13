@@ -68,46 +68,28 @@ updateUserWeight(e) {
 
 
 renderBMIClassMessage(){
-const { result } = this.state;
+    const { result } = this.state;
 // BMI values within certain ranges indicate different classifications of physical health.
 // renderMessage takes the result from state then sets message state to a different string
 // indicating which classication the user falls under. This then causes the app to re-render
 // displaying this information to the user.
-
-  if (result < 15) {
-
-    this.setState({message: "You are very severely underweight"})
-
-  } else if (result > 15 && result < 16) {
-
-    this.setState({message: "You are severely underweight"})
-
-  } else if (result > 16 && result < 18.5) {
-
-    this.setState({message: "You are underweight"})
-
-  } else if (result > 18 && result < 25) {
-
-    this.setState({message: "Your BMI is normal"})
-
-  } else if (result > 25 && result < 30) {
-
-    this.setState({message: "You are overweight"})
-
-  } else if (result > 30 && result < 35) {
-
-    this.setState({message: "You are moderately Obese"})
-
-  } else if (result > 35 && result < 40) {
-
-    this.setState({message: "You are severely obese"})
-
-  } else if (result > 40) {
-
-    this.setState({message: "You are very severely obese"})
-  }
-
-
+        if (result < 15) {
+          this.setState({message: "You are very severely underweight"})
+        } else if (result > 15 && result < 16) {
+          this.setState({message: "You are severely underweight"})
+        } else if (result > 16 && result < 18.5) {
+          this.setState({message: "You are underweight"})
+        } else if (result > 18 && result < 25) {
+          this.setState({message: "Your BMI is normal"})
+        } else if (result > 25 && result < 30) {
+          this.setState({message: "You are overweight"})
+        } else if (result > 30 && result < 35) {
+          this.setState({message: "You are moderately Obese"})
+        } else if (result > 35 && result < 40) {
+          this.setState({message: "You are severely obese"})
+        } else if (result > 40) {
+          this.setState({message: "You are very severely obese"})
+        }
 }
 
   render() {
