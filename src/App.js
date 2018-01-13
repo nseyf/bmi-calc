@@ -20,6 +20,7 @@ class App extends Component {
 this.renderBMIClassMessage = this.renderBMIClassMessage.bind(this);
 this.updateUserHeight = this.updateUserHeight.bind(this);
 this.updateUserWeight = this.updateUserWeight.bind(this);
+
   }
 
 
@@ -66,7 +67,6 @@ updateUserWeight(e) {
 // calculate BMI with data it does not have.
 
 
-
 renderBMIClassMessage(){
 const { result } = this.state;
 // BMI values within certain ranges indicate different classifications of physical health.
@@ -74,7 +74,7 @@ const { result } = this.state;
 // indicating which classication the user falls under. This then causes the app to re-render
 // displaying this information to the user.
 
-  if(result < 15) {
+  if (result < 15) {
 
     this.setState({message: "You are very severely underweight"})
 
